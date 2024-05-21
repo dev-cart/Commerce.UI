@@ -1,0 +1,21 @@
+<li *ngFor="let product of category.products;let i=index" class="product-item">
+    <div class="product-header">
+        <!-- <h4>{{i+1}}</h4> -->
+        <h4>{{product.name}}</h4>
+        <div class="product-actions">
+            <button class="btn btn-secondary" (click)="editProductNav(product)">Edit Product</button> |
+            <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete Product</button>
+        </div> 
+    </div>
+    <div class="product-details">
+        <p><strong>Price: $</strong>{{product.price}}</p>
+        <p><strong>Description: </strong>{{product.description}}</p>
+    </div>
+    
+    <!-- <span >{{i+1}}</span>
+    <span class="product-name">{{product.name}}</span>
+    <span class="product-name">${{product.price}}</span>
+    <span class="product-name">{{product.description}}</span> -->
+   
+    
+</li>

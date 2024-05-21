@@ -1,0 +1,88 @@
+.add-category {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgb(0, 0, 0, 0.1)
+} // .add-category
+
+.add-category h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Aerial', sans-serif;
+}
+
+.add-category form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-category .form-group {
+    margin-bottom: 15px;
+}
+
+.error {
+    color: red;
+    font-size: 15px;
+    margin-top: 0.5em;
+}
+
+.add-category label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.add-category input
+{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.add-category input:focus
+// .add-category textarea:focus,
+// .add-category select:focus
+{
+    border-color: #007bff;
+    outline: none;
+}
+
+.add-category .button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-category button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;;
+}
+
+.add-category .btn-submit {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.add-category .btn-submit-enabled {
+    background-color: #007bff; // #28a745;
+    color: white;
+}
+
+.add-category .btn-submit-disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.add-category .btn-cancel {
+    background-color:  #6c757d;
+    color: #fff;
+}

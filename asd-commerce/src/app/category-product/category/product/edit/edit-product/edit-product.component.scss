@@ -1,0 +1,94 @@
+.edit-product {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgb(0, 0, 0, 0.1)
+} // .edit-product
+
+.edit-product h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Aerial', sans-serif;
+}
+
+.edit-product form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-product .form-group {
+    margin-bottom: 15px;
+}
+
+.error {
+    color: red;
+    font-size: 15px;
+    margin-top: 0.5em;
+}
+
+.edit-product label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.edit-product textarea {
+    resize: flex;
+    height: 100px;
+}
+
+.edit-product input,
+.edit-product textarea,
+.edit-product select 
+{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.edit-product input:focus,
+.edit-product textarea:focus,
+.edit-product select:focus{
+    border-color: #007bff;
+    outline: none;
+}
+
+.edit-product .button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-product button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;;
+}
+
+.edit-product .btn-update {
+    // background-color: #007bff;
+    // color: #fff;
+}
+
+.edit-product .btn-update-enabled {
+    background-color: #007bff; // #28a745;
+    color: white;
+}
+
+.edit-product .btn-update-disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.edit-product .btn-cancel {
+    background-color:  #6c757d;
+    color: #fff;
+}

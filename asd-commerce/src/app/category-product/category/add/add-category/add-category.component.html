@@ -1,0 +1,23 @@
+<div class="add-category">
+    <h2 class="add-category">Add New Category</h2>
+    <form class="add-category" (ngSubmit)="addCategory()" #addCatgryForm="ngForm">
+        <div class="form-group">
+            <label for="name">Add Category:</label>
+            <input type="text" id="name" name="name" required
+             [(ngModel)]="newCategory.name" placeholder="Name" #name="ngModel">
+             <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
+                Category Name is required.
+             </div>
+        </div>
+        <div class="button-group">
+            <button class="btn-submit" type="submit"  [disabled]="addCatgryForm.invalid" 
+            [ngClass]="{'btn-submit-enabled': !addCatgryForm.invalid, 'btn-submit-disabled': addCatgryForm.invalid}">Add</button>
+            <button type="button" (click)="cancelAdd()"
+            >Cancel</button>
+
+            <!-- <button type="submit" class="btn-submit"  [disabled]="editCatgryForm.invalid"
+            [ngClass]="{'btn-submit-enabled': !editCatgryForm.invalid, 'btn-submit-disabled': editCatgryForm.invalid}">submit</button>
+            <button type="butn-cancel" (click)="cancelEdit()">Cancel</button> -->
+        </div>
+    </form>    
+</div>    

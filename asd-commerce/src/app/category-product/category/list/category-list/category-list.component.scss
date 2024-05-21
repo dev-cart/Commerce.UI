@@ -1,0 +1,82 @@
+.category-list {
+    margin: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .category-list h3 {
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .category-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .category-item {
+    border-bottom: 1px solid #eaeaea;
+    padding: 10px 0;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  .category-name {
+    display: inline-block;
+    margin-right: 40px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  .edit-btn {
+    background-color: #007bff; // #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+      background-color: #ff5252;
+    }
+  }
+  .add-btn {
+    background-color: #007bff; // #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+      background-color: #ff5252;
+    }
+  }
+  
+  
+  .delete-btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+      background-color: #ff5252;
+    }
+  }
+  
+  h4 {
+    padding-left: 10px;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  app-product {
+    margin-left: 20px;
+  }
+  

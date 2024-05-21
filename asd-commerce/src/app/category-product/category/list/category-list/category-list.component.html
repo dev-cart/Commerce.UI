@@ -1,0 +1,19 @@
+<!-- <div class="category-list"> -->
+    <h3>Categories List</h3>
+    <ul class="category-list">
+        <li class="category-list" *ngFor="let category of categories" class="category-item">
+            <div class="category-header">
+                <h3>{{category.name}}</h3>
+                <div class="category-actions">
+                    <button class="add-btn" (click)="addProductNav(category.id, categories)">Add Product</button>
+                    <button class="edit-btn" (click)="editCategoryNav(category)">Edit Category</button>
+                    <button class="delete-btn" (click)="deleteCategory(category.id)">Delete Category</button>
+                </div>
+            </div>            
+            <!-- <h3 *ngIf="category.products && category.products.length>0">Products List</h3> -->
+            <ul class="product-list">
+                <app-product *ngIf="category.products && category.products.length>0" [category]="category" ></app-product>
+            </ul> 
+        </li>
+    </ul>
+<!-- </div> -->

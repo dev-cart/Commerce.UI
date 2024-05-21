@@ -1,0 +1,69 @@
+<div class="container">
+    <!-- <h2>Categories</h2> -->
+        <!-- <button class="btn-add-category btn-primary" (click)="navigateToAddCategory()"> -->
+        <button class="btn btn-primary" (click)="navigateToAddCategory()">
+            Add Category
+        </button>
+    <!-- <h2>Add Categories</h2>
+    <div class="add-category">
+        <label style="padding-left: 15px;padding-right: 15px;">Add Category:</label>
+        <input type="text" [(ngModel)]="newCategory.name" placeholder="Name">
+        <span *ngIf="!newCategory.name" style="color: red;padding-left: 2px;padding-right: 15px;">Required</span>
+        <button class="add-btn" (click)="addCategory()">Add</button>
+    </div> -->
+    <!-- <hr>
+    <h2>Add Products</h2>
+    <div style="padding-left: 15px;padding-right: 15px;" class="add-product">
+        <label>Add Product to Category:</label>
+        <input class="product-name" type="text" [(ngModel)]="newProduct.name" placeholder="Name">
+        <span *ngIf="!newProduct.name" style="color: red;padding-left: 2px;padding-right: 15px;">Required</span>
+        <input class="product-price" type="text" [(ngModel)]="newProduct.price" placeholder="Price" name="price" pattern="[0-9]+(\.[0-9]+)?">
+        <span *ngIf="!newProduct.price" style="color: red;padding-left: 2px;padding-right: 15px;">Required</span>
+        <input class="product-name" type="text" [(ngModel)]="newProduct.description" placeholder="Description">
+        <span *ngIf="!newProduct.description" style="color: red;padding-left: 2px;padding-right: 15px;">Required</span>
+        <select [(ngModel)]="selectedCategoryId">
+            <option value="" disabled selected>Select</option>
+            <option *ngFor="let category of categories" [value]="category.id">
+                {{category.name}}
+            </option>
+        </select>
+        <span *ngIf="!selectedCategoryId" style="color: red;padding-left: 2px;padding-right: 15px;">Category Required</span>
+        <button [disabled]="!selectedCategoryId || !newProduct.name || !newProduct.price || !newProduct.description" (click)="addProductWithCategory()">Add</button>
+    </div> -->
+
+
+    
+    <router-outlet></router-outlet>
+    <!-- <app-category-list [categories]="categories"></app-category-list> -->
+    <!-- <h3>Categories List</h3>
+    
+    <ul class="category-list"> -->
+
+        <!-- <li *ngFor="let category of categories" class="category-item">
+            <span style="padding-right: 40px;font-weight: bold;" class="category-name">{{category.name}}</span>
+            <button class="delete-btn" (click)="deleteCategory(category.id)">Delete</button>
+            |&nbsp;
+            <button class="delete-btn" (click)="editCategory(category)">Edit</button><br>
+
+            <h4 style="padding-left:10px;" *ngIf="category.products && category.products.length>0">Products List</h4>
+            <ul>
+                <li *ngFor="let product of category.products;let i=index" class="product-list">
+                    <span style="padding-left: 15px;" >{{i+1}}</span>
+                    <span style="padding-left: 15px;" class="product-name">{{product.name}}</span>
+                    <span style="padding-left: 15px;" class="product-name">${{product.price}}</span>
+                    <span style="padding-left: 15px;padding-right: 15px;" class="product-name">{{product.description}}</span>
+                    
+                    <button class="delete-btn" (click)="deleteProduct(product.id)">Delete</button> |
+                    <button class="delete-btn" (click)="editProduct(product.id)">Edit</button>
+                    <hr>
+                </li>
+            </ul>
+        </li> -->
+    <!-- </ul> -->
+
+    <!-- <app-edit-category [category]="editingCategory" updateCategoryEvent="onUpdateCategory($event)"
+    cancelEditEvent="onCancelEdit()">
+
+    </app-edit-category> -->
+    
+</div>

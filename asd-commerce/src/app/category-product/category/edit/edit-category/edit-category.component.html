@@ -1,0 +1,18 @@
+<div class="edit-category">
+    <h2 class="edit-category">Edit Category</h2>
+    <form class="edit-category" (ngSubmit)="updateCategory()" #editCatgryForm="ngForm">
+        <div class="form-group">
+            <label for="categoryName">Name:</label>
+            <input type="text" id="categoryName" [(ngModel)]="category.name" #name="ngModel" required
+            name="name" placeholder="Name">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
+            Name is required.
+            </div>
+        </div>
+        <div class="button-group">
+            <button  class="btn-update" type="submit" [disabled]="editCatgryForm.invalid"
+            [ngClass]="{'btn-update-enabled': !editCatgryForm.invalid, 'btn-update-disabled': editCatgryForm.invalid}">Update</button>
+            <button type="button" (click)="cancelEdit()">Cancel</button>
+        </div>
+    </form>
+</div>
