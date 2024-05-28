@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EditProductComponent } from '../../edit/edit-product/edit-product.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../../../services/product.service';
@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { Category } from '../../../../models/category.model';
 import { CategoryService } from '../../../../services/category.service';
 import { Product } from '../../../../models/product.model';
+import { SharedService } from '../../../../../shared/shared.service';
 
 @Component({
   selector: 'app-add-product',
@@ -18,12 +19,14 @@ import { Product } from '../../../../models/product.model';
 export class AddProductComponent implements OnInit {
   categories: Category[] = [];
   newProduct: Product = {};// {categoryId:0,description:'',id:0,name:'',price:0};
+  //@Output() productAdded = new EventEmitter<void>();
 
   
   constructor(private actvtdRoute: ActivatedRoute,
     private router: Router,
     private prdctSrvc: ProductService,
-    private catgrySrvc: CategoryService
+    private catgrySrvc: CategoryService,
+    private sharedSrvc: SharedService
   ){}
   
   async ngOnInit(): Promise<void> {
@@ -38,17 +41,18 @@ export class AddProductComponent implements OnInit {
           return;
         }
         this.categories = catgrs;
-        const categoryId = this.actvtdRoute.snapshot.paramMap.get('categoryId');
-        if(!categoryId || categoryId.trim() == '') {
-          // alert("error!")
-          alert('Category is missing. Product cannot be added without an associated category.');
-          this.router.navigate(['/categories']);
-          return;
-        }
-        //this.categories.find(catgry => catgry.id === +categoryId);
-        this.newProduct.categoryId = +categoryId;
+        
       });
     }
+    const categoryId = this.actvtdRoute.snapshot.paramMap.get('categoryId');
+    if(!categoryId || categoryId.trim() == '') {
+      // alert("error!")
+      alert('Category is missing. Product cannot be added without an associated category.');
+      this.router.navigate(['/categories']);
+      return;
+    }
+    //this.categories.find(catgry => catgry.id === +categoryId);
+    this.newProduct.categoryId = +categoryId;
   }
   
   addProduct(): void {
@@ -61,11 +65,15 @@ export class AddProductComponent implements OnInit {
 
      // alert('product validated')
     this.prdctSrvc.addProduct(this.newProduct).subscribe(_ =>{
+      this.sharedSrvc.triggerReloadCatgrs();
       //this.updateProductEvent.emit(this.product);
+     // this.productAdded.emit();
     });
 
     //alert("Product is added.")
-    this.router.navigate(['/categories'])
+    this.router.navigate(['/categories']).then(() => {
+      //window.location.reload();
+    });
   }
 
   cancelAdd(): void {

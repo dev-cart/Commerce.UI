@@ -18,8 +18,7 @@ export class ProductListComponent {
 
   constructor(private productSrvc: ProductService, 
     private router: Router){
-      console.log('ProductListComponent: Categories:')
-      console.log(this.category);
+      
     }
 
   editProductNav(product: Product): void {  // Navigate to edit categories.
@@ -31,6 +30,7 @@ export class ProductListComponent {
     if(id == undefined) return;
     this.productSrvc.deleteProduct(id).subscribe(() => {
       this.category.products = this.category.products.filter(p => p.id !== id);
+      alert('Product deleted!');
     });
   }
 

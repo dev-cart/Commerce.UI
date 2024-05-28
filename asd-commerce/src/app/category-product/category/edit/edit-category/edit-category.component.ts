@@ -38,19 +38,20 @@ export class EditCategoryComponent implements OnInit{
         const id = this.actvtdRoute.snapshot.paramMap.get('id');
         if(!id) return
         this.category.id = +id;
-        await this.loadProductsByCategoryId(+id);
+        await this.loadCategoryById(+id);
       }
      }
   }
 
-  async loadProductsByCategoryId(id: number): Promise<void> {
+  async loadCategoryById(id: number): Promise<void> {
     await this.categorySrvc.getCategoryById(id).subscribe(catgry => {
       this.category = catgry;
-      this.prdctSrvc.getProducts().subscribe(prdcts => {
-        if(prdcts && prdcts.length > 0 && this.category) {
-          this.category.products = prdcts.filter(p => p.categoryId === catgry.id);
-        }
-      })});
+      // this.prdctSrvc.getProducts().subscribe(prdcts => {
+      //   if(prdcts && prdcts.length > 0 && this.category) {
+      //     this.category.products = prdcts.filter(p => p.categoryId === catgry.id);
+      //   }
+      // })
+    });
  }
 
 //  async loadProductsByCategoryId(): Promise<void> {
@@ -79,5 +80,4 @@ export class EditCategoryComponent implements OnInit{
     this.router.navigate(['/categories']);
     //this.cancelCategoryEvent.emit();
   }
-
 }

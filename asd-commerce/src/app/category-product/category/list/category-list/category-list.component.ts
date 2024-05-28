@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Category } from '../../../models/category.model';
 import { CategoryService } from '../../../services/category.service';
 import { Product } from '../../../models/product.model';
@@ -10,6 +10,8 @@ import { AddProductComponent } from "../../product/add/add-product/add-product.c
 import { ProductComponent } from "../../product/product.component";
 import { Router, RouterModule } from '@angular/router';
 import { ProductService } from '../../../services/product.service';
+import { Subscription } from 'rxjs';
+import { SharedService } from '../../../../shared/shared.service';
 
 @Component({
     selector: 'app-category-list',
@@ -19,22 +21,32 @@ import { ProductService } from '../../../services/product.service';
     imports: [FormsModule, CommonModule, AddCategoryComponent, 
       EditCategoryComponent, AddProductComponent, ProductComponent, RouterModule]
 })
-export class CategoryListComponent implements OnInit {
+export class CategoryListComponent implements OnInit, OnDestroy {
 
   categories: Category[] = [];
   products: Product[] = [];
   editingCategory: Category | null = {} as Category;
+  private subscription!: Subscription;
 
   constructor(private categorySrvc: CategoryService,
     private productSrvc: ProductService,
-    private router: Router
+    private router: Router,
+    private sharedSrvc: SharedService
   ) {
     
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   async ngOnInit(): Promise<void> {
     await this.loadProducts();
     await this.loadCategories();
+
+    this.subscription = this.sharedSrvc.reloadCatgrs$.subscribe(reload => {
+      this.loadProducts();
+     // this.loadCategories();
+    })
   }
 
   async loadCategories(): Promise<void> {

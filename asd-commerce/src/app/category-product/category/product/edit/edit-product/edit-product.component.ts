@@ -44,9 +44,6 @@ export class EditProductComponent implements OnInit {
      this.catgrySrvc.getCategories().subscribe(catgrs => {
       this.categories = catgrs;
      });
-
-      console.log('EditProductComponent: Categories:')
-      console.log(this.product);
   }
 
   async loadProductsById(id: number): Promise<void> {
